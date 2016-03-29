@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选择结果</title>
+	<style>
+	li{
+		list-style: none;
+		margin-bottom: 10px;
+	}
+	</style>
+	<script src="/javascripts/jquery-2.0.3.js"></script>
+</head>
+<body>
+	<div class="wrap" ms-controller="myApp">	
+	</div>
+	<script>
+	$(function(){
+			$.ajax({
+			url: '/getChoose',
+			type: 'GET',
+			success:function(res){
+				if( res.status == 0 ){
+					var arr = [];
+					var str = '<ul>'
+					for( var t in res.body ){
+						str += '<li>命题行号'+t+'所选同学:';
+						for( var l = 0;l<res.body[t].name.length;l++ ){
+							str += ''+res.body[t].name[l];
+						}
+						str+='</li>'
+					}
+					str += '</ul>';
+					$('.wrap').html(str);
+				} else{
+					console.log('获取数据失败');
+				}
+			}
+		});
+	})
+	</script>
+</body>
+</html>

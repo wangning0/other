@@ -1,0 +1,22 @@
+{
+  "name": "gulp_product_frame",
+  "version": "1.0.0",
+  "description": "NodeJs构建项目时自动引入前端代码",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gulp",
+    "express",
+    "node"
+  ],
+  "author": "WangNing",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-rimraf": "^0.2.0",
+    "gulp-uglify": "^1.5.3"
+  }
+}

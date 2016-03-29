@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>课程设计选择页面</title>
+	<style>
+		*{
+				margin: 0;
+				padding:0;
+		}
+		input{
+			outline: none;
+			width: 200px;
+			height: 20px;
+			padding: 10px;
+			margin-left: 10px;
+		}
+		button{
+			width: 60px;
+			height: 20px;
+			margin-right: 100px;
+			float: right;
+		}
+		span{
+			color: red;
+			font-size: 18px;
+			font-weight: bold;
+		}
+		.wrap{
+			width: 700px;
+			height: 500px;
+			margin: 100px auto;
+		}
+		.pre{
+			font-size: 20px;
+			color: red;
+			font-weight: bold;
+		}
+	</style>
+	<script src="/javascripts/jquery-2.0.3.js"></script>
+</head>
+<body>
+<div class="wrap">
+	<pre class="pre">
+	请各位同学注意：请务必填写本人姓名
+	<br>
+	第二个文本框填写的是课程设计题目信息汇总那个表格中命题所在的行数(2号－49号)
+	</pre>	
+	<br>
+	<br>
+		请输入你的姓名:<input type="text" name="name" class="name" placeholder="姓名">
+		<br>
+		<br>
+		请输入你想选择课程设计命题在execl表格中的<span>行号</span>:<input class="product_id" name="product_id" type="text" placeholder="行号">
+		<br>
+		<br>
+		<button class="sub">确认</button>
+</div>
+<script>
+	$('.sub').click(function(){
+		var data = {
+			name:$('.name').val(),
+			product_id:$('.product_id').val()
+		}
+		alert('确认提交吗?');
+		$.ajax({
+			url: '/postChoose',
+			type: 'POST',
+			dataType: 'json',
+			data: data,
+			success:function(res){
+				if( res.status == 0 ){
+					window.location.href= '/showChooses';
+				} else{
+					alert('提交失败,重新提交');
+				}
+			}
+		})
+		
+	})
+</script>
+</body>
+</html>
