@@ -10,9 +10,8 @@ var HtmlWebpackPlugin = require("html-webpack-plugin");
 var rimraf = require('gulp-rimraf');
 var runSequence = require('run-sequence');
 var webpackConfig = {
-	watch: false,
 	output: {
-		path: path.join(__dirname, '/build'),
+		path: path.resolve(__dirname, 'build'),
 		filename: "[name].[hash:8].js",
 		publicPath: '/'
 	},
@@ -24,11 +23,11 @@ var webpackConfig = {
 	module: {
 		noParse: [],
 		loaders: [{
-			test: /\.js|jsx$/,
-			loaders: ['jsx?harmony', 'react-hot'],
-			exclude: path.join(__dirname, 'node_modules')
+			test: /\.js[x]?$/,
+			loaders: ['react-hot', 'babel'],
+			exclude: path.resolve(__dirname, 'node_modules')
 		}, {
-			test: /\.css$/,
+			test: /\.css/,
 			loader: ExtractTextPlugin.extract("style-loader", "css-loader")
 		}, {
 			test: /\.less/,
@@ -36,6 +35,9 @@ var webpackConfig = {
 		}, {
 			test: /\.(png|jpg)$/,
 			loader: 'url?limit=8192'
+		}, {
+			test: /\.(woff|woff2|ttf|svg|eot)(\?v=\d+\.\d+\.\d+)?$/,
+			loader: "url?limit=10000"
 		}]
 	},
 	plugins: [
