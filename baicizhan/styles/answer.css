@@ -1,0 +1,188 @@
+*{
+	padding: 0px;
+	margin:0px;
+}
+.wraper{
+	width:600px;
+	height:200px;
+	margin: 0 auto;
+	background: ;
+}
+
+/*头部*/
+
+.header {
+	background: rgb(245,245,245);
+	height: 40px;
+}
+.header ul {
+	padding: 5px 10px 20px 5px;
+	overflow: hidden;
+}
+.header ul li {
+	list-style: none;
+	float: left;
+}
+.header .span_first{
+	display: inline-block;
+    width: 21px;
+    height: 22px;
+	background: url(../images/arrow.png);
+	margin-right: 20px;
+}
+.header .span_second{
+	display: inline-block;
+    width: 21px;
+    height: 22px;
+	background: url(../images/air.png);
+}
+.header ul li:last-child{
+	float: right;
+}
+.header ul li .submit {
+	background-color: rgb(245,245,245);
+	cursor: pointer;
+	outline: none;
+	width: 50px;
+	height: 27px;
+	border-radius: 4px;
+	border: 1px solid #8E8E8E;
+}
+
+/*内容部分*/
+.body{
+	margin-bottom: 25px;
+}
+.content{
+	padding: 20px 5px 0 10px;
+	height: 300px;
+	overflow: auto;
+}
+.content .content_title p{
+	background: url(../images/book.png) no-repeat;
+	color: #827373;
+	height: 22px;
+	font-weight: bold;
+	font-size: 17px;
+	padding-left: 27px;
+	background-position: 0 1px;
+	line-height: 22px;
+}
+.content .content_body{
+	padding: 20px 0 0 0;
+	text-indent:1em;
+	color: gray;
+	font-weight: lighter;
+	font-size: 14px;
+	line-height: 27px
+}
+.content .content_body button {
+	border: 0;
+    width: 80px;
+    height: 20px;
+    background: #fff;
+    border-bottom: 1px solid #D1D1D1;
+    outline: none;
+    cursor: pointer;
+}
+.content .content_body .active_choose {
+    background: rgb(112,211,242);
+}
+.body .content_footer{
+	position: relative;
+}
+.body .bar{
+	width: 100%;
+	height: 17px;
+	background: -webkit-linear-gradient(#fff, rgba(130,130,130,0.33)); /* Safari 5.1 - 6.0 */
+    background: -webkit-linear-gradient(#fff, rgba(130,130,130,0.33)); /* Safari 5.1 - 6.0 */
+    background: -webkit-linear-gradient(#fff, rgba(130,130,130,0.33)); /* Safari 5.1 - 6.0 */
+    background: -webkit-linear-gradient(#fff, rgba(130,130,130,0.33)); /* Safari 5.1 - 6.0 */
+}
+.body .touch_btn{
+	width: 44px;
+	height: 24px;
+	cursor: pointer;
+	border:0;
+	outline: none;
+	background:url(../images/line.png);
+	position: absolute;
+	top: 15px;
+	left: 278px
+}
+
+/*footer部分*/
+.footer .q_number ul {
+	overflow: hidden;
+	/*动态换取宽度,要判断是不是最大的宽度*/
+	width: 300px;
+	margin:0 auto;
+}
+.footer .q_number li {
+	list-style: none;
+	float: left;
+	margin-left: 3px;
+	position: relative;
+	height: 35px;
+}
+.footer .q_number li button {
+	width: 27px;
+    height: 27px;
+    outline: none;
+    border: 1px solid;
+    border-radius: 6px;
+    background-color: rgb(219,219,219);
+    color: #fff;
+}
+.footer .q_number li span{
+	width:0; 
+    height:0; 
+    border-left:7px solid transparent;
+    border-right:7px solid transparent;
+    border-bottom:7px solid black;
+    position: absolute;
+    bottom: 0px;
+    left: 6px;
+}
+.footer .q_chooses {
+	margin-top: 10px;
+}
+.footer .q_chooses table{
+	border-collapse:collapse;
+}
+.footer .q_chooses td {
+	width: 200px;
+	text-align: center;
+	height: 40px;
+	color: rgba(0,0,0,0.5);
+	cursor: pointer;
+}
+.footer .q_chooses table, td, th
+  {
+  border:1px solid #795548;
+  }
+
+
+/*样式改变*/
+
+.footer .q_number .choosed {
+	background-color: rgb(112,211,242)
+}
+.footer .q_chooses .choosed {
+	text-decoration:line-through;
+}
+
+.footer .q_number .wrong {
+	background-color: rgb(238,122,135)
+}
+.footer .q_number .right {
+	background-color: rgb(107,210,189)
+}
+.test{
+	width: 1000px;
+	height: 400px;
+	background: url(../images/2.jpg);
+}
+
+
+
