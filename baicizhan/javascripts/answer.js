@@ -1,21 +1,18 @@
-/*
-	还没有实现锚点连接跳转
-*/
-var words = document.getElementsByTagName('td');
 var content_body = document.querySelector('.content_body');
 var words_blank = content_body.getElementsByTagName('a');
 var q_number = document.querySelector('.q_number');
-var touch_btn = document.querySelector('.touch_btn');
+var touch_btn = document.querySelector('.touch_opacity');
 var header = document.querySelector('.header');
 var content = document.querySelector('.content');
-var number_btn = q_number.getElementsByTagName('a');
-var number_li = q_number.getElementsByTagName('li');
 var submit = document.querySelector('.submit');
 var container = document.querySelector('.container');
 var showResult = document.querySelector('.showResult');
 var checkout_analysise = document.querySelector('.checkout_analysise');
 var percent = document.querySelector('.percent');
 var showResult_body_table = document.querySelector('.showResult_body_table').getElementsByTagName('table')[0];
+var q_chooses_table = document.querySelector('.q_chooses').getElementsByTagName('table')[0];
+var showAnswerTab = document.querySelector('.showAnswerTab');
+var q_number_ul = q_number.getElementsByTagName('ul')[0];
 
 var active_choose_onoff = false;
 var scroll_onoff = false;
@@ -24,16 +21,24 @@ var lastInnerHTML;
 var active_choose = null;
 var answer_choose = [];
 var answer_onoff = true;
+words_blank = Array.prototype.slice.call(words_blank, 0);
+
 //后台传取的数据
+var givenChooses = ['common', 'results', 'consequently', 'basis', 'detection', 'monitor', 'symbols', 'average', 'dramatically', 'symptoms', 'reason', 'distributed', 'including', 'developing', 'shared'];
 var right_answer = ['developing', 'average', 'dramatically', 'results', 'shared', 'basis', 'monitor', 'including', 'detection', 'symptoms']
 var answer_analysis = ['第1题的文字解析', '第2题的文字解析', '第3题的文字解析', '第4题的文字解析', '第5题的文字解析', '第6题的文字解析', '第7题的文字解析', '第8题的文字解析', '第9题的文字解析', '第10题的文字解析'];
-words_blank = Array.prototype.slice.call(words_blank, 0);
-words = Array.prototype.slice.call(words, 0);
-number_btn = Array.prototype.slice.call(number_btn, 0);
-
+givenChooses = givenChooses.sort(randomsort);
 /*
 	选择部分
 */
+init(q_chooses_table, q_number_ul, givenChooses, right_answer);
+
+var number_btn = q_number.getElementsByTagName('a');
+var number_li = q_number.getElementsByTagName('li');
+var words = document.getElementsByTagName('td');
+words = Array.prototype.slice.call(words, 0);
+number_btn = Array.prototype.slice.call(number_btn, 0);
+
 words_blank.forEach(function(item, index) {
 	item.addEventListener('click', function() {
 		if (answer_onoff) {
@@ -52,6 +57,7 @@ words_blank.forEach(function(item, index) {
 		}
 	})
 })
+
 number_btn.forEach(function(item, index) {
 	item.addEventListener('click', function() {
 		if (answer_onoff) {
@@ -68,8 +74,12 @@ number_btn.forEach(function(item, index) {
 		number_li_active_choose ? number_li_active_choose.removeAttribute('class') : '';
 		var span = document.createElement('span');
 		number_li[index].appendChild(span);
+		if (!answer_onoff) {
+			showAnalysiseTab(showAnswerTab, index, answer_analysis);
+		}
 	})
 })
+
 words.forEach(function(item, index) {
 	item.addEventListener('mouseover', function() {
 		if (answer_onoff) {
@@ -96,12 +106,14 @@ words.forEach(function(item, index) {
 	})
 })
 
-touch_btn.addEventListener('mousedown', function(e) {
+touch_btn.addEventListener('mousedown', function() {
 	scroll_onoff = true;
 })
+
 touch_btn.addEventListener('mouseup', function() {
 	scroll_onoff = false;
 })
+
 touch_btn.addEventListener('mousemove', function(e) {
 	if (scroll_onoff) {
 		var headerHeight = header.offsetHeight;
@@ -114,58 +126,69 @@ touch_btn.addEventListener('mousemove', function(e) {
 	交卷部分
 */
 
-/*
-
-
-var a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
-var wrong = [1, 3, 5];
-var number = a.length / 5;
-var str = '';
-
-for (var i = 0; i < number; i++) {
-	var temp;
-	temp = a.slice(0 + 5 * i, 5 * (i + 1));
-	str += '<tr>'
-	temp.forEach(function(item, index) {
-		var className = 'show_right';
-		for (var j = 0; j < wrong.length; j++) {
-			if (item == wrong[j]) {
-				className = 'show_error';
-			}
-		}
-		str += '<td class="' + className + '">' + item + '</td>';
-	})
-	str += '</tr>';
-}
-
-*/
-
 submit.addEventListener('click', function() {
-	answer_onoff = false;
-	var wrongInfoObj = checkAnswer(answer_choose, right_answer);
-	q_number.querySelector('.choosed') ? q_number.querySelector('.choosed').removeAttribute('class') : '';
-	//container.style[z - index] = 1;
-	container.style.background = 'rgb(128,128,128)';
-	showResult.style.display = 'block';
-	q_number.style.opacity = '0';
-	//wrongInfoObj
-	percent.innerText = wrongInfoObj.rightPercent + '%';
-	var str = showAnswerNumber(wrongInfoObj.wrongIndex, right_answer);
-	words_blank.forEach(function(item) {
-		item.setAttribute('class', 'right');
-	})
-	number_btn.forEach(function(item) {
-		item.setAttribute('class', 'right');
-	})
-	showResult_body_table.innerHTML = str;
-	addAnswer(wrongInfoObj.wrongIndex, right_answer);
+	if (answer_onoff) {
+		answer_onoff = false;
+		var wrongInfoObj = checkAnswer(answer_choose, right_answer);
+		q_number.querySelector('.choosed') ? q_number.querySelector('.choosed').removeAttribute('class') : '';
+		container.style.background = 'rgb(128,128,128)';
+		showResult.style.display = 'block';
+		q_number.style.opacity = '0';
+		percent.innerText = wrongInfoObj.rightPercent + '%';
+		var str = showAnswerNumber(wrongInfoObj.wrongIndex, right_answer);
+		words_blank.forEach(function(item) {
+			item.setAttribute('class', 'right');
+		})
+		number_btn.forEach(function(item) {
+			item.setAttribute('class', 'right');
+		})
+		showResult_body_table.innerHTML = str;
+		addAnswer(wrongInfoObj.wrongIndex, right_answer);
+		var span = document.createElement('span');
+		var chooseLastLi = document.querySelector('.active_choose_li');
+		console.log(chooseLastLi);
+		chooseLastLi.removeChild(chooseLastLi.childNodes[1]);
+		chooseLastLi ? chooseLastLi.removeAttribute('class') : '';
+		number_li[0].setAttribute('class', 'active_choose_li');
+		number_li[0].appendChild(span);
+		q_chooses_table.style.display = 'none';
+		showAnalysiseTab(showAnswerTab, 0, answer_analysis);
+		location.hash = "#1";
 
+	}
 })
+
 checkout_analysise.addEventListener('click', function() {
 	container.style.background = '#fff';
 	showResult.style.display = 'none';
 	q_number.style.opacity = '1';
 })
+
+function init(dom1, dom2, givenChooses, right_answer) {
+	var _givenChooses = givenChooses;
+	var _number_str = '';
+	var _str = '';
+	var modal = (_givenChooses.length % 3);
+	if (modal) {
+		var arr = new Array(3 - modal);
+		_givenChooses = _givenChooses.concat(arr);
+	}
+	_str = '<tr>';
+	for (var i = 0; i < _givenChooses.length; i++) {
+		if (i % 3 == 0 && i != 0) {
+			_str += '</tr><tr>';
+		}
+		_givenChooses[i] = _givenChooses[i] ? _givenChooses[i] : '';
+		_str += '<td>' + _givenChooses[i] + '</td>';
+	}
+	_str += '</tr>';
+	dom1.innerHTML = _str;
+	right_answer.forEach(function(item, index) {
+		_number_str += '<li><a href="#' + (index + 1) + '"> ' + (index + 1) + ' </a></li> ';
+	})
+	dom2.innerHTML = _number_str;
+	location.hash = '#0';
+}
 
 function checkAnswer(chooseAnswer, rightAnswer) {
 	var _obj = {};
@@ -182,7 +205,6 @@ function checkAnswer(chooseAnswer, rightAnswer) {
 }
 
 function showAnswerNumber(wrong, right) {
-	var _number = right.length / 5;
 	var _str = '';
 	_str += '<tr>'
 	for (var j = 0; j < right.length; j++) {
@@ -201,7 +223,6 @@ function showAnswerNumber(wrong, right) {
 	_str += '</tr>';
 	return _str;
 }
-console.log(document.createElement('a'))
 
 function addAnswer(wrong, rightAll) {
 	if (wrong.length) {
@@ -213,13 +234,11 @@ function addAnswer(wrong, rightAll) {
 				} else {
 					words_blank[item - 1].setAttribute('class', 'error');
 				}
-				//console.log('1', words_blank[item - 1].innerText === '');
-				console.log(item);
+
 				number_btn[item - 1].setAttribute('class', 'wrong');
 				var analy_right_answer = document.createElement('a');
 				analy_right_answer.setAttribute('class', 'answer');
 				analy_right_answer.innerHTML = rightAll[item - 1];
-				console.log(analy_right_answer);
 				var target = words_blank[item - 1];
 				insertAfter(analy_right_answer, target);
 			})(item)
@@ -238,4 +257,14 @@ function insertAfter(newEl, targetEl) {
 	} else {
 		parentEl.insertBefore(newEl, targetEl.nextSibling);
 	}
+}
+
+function showAnalysiseTab(dom, index, answer_analysis) {
+	var _str = '<p class="important">答案</p>';
+	_str += '<p>' + answer_analysis[index] + '</p>';
+	dom.innerHTML = _str;
+}
+
+function randomsort(a, b) {
+	return Math.random() > .5 ? -1 : 1;
 }
