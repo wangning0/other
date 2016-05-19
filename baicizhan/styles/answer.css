@@ -7,6 +7,7 @@
 	height:200px;
 	margin: 0 auto;
 	background: ;
+	position: relative;
 }
 
 /*头部*/
@@ -80,7 +81,7 @@
 	text-decoration: none;
 	display: inline-block;
 	border: 0;
-    width: 80px;
+    width: 100px;
     height: 20px;
     background: #fff;
     border-bottom: 1px solid #D1D1D1;
@@ -88,6 +89,17 @@
     cursor: pointer;
     color: rgb(112,211,242);
     font-size: 10px;
+}
+.content .content_body .right{
+	color: rgb(144,221,205);
+}
+.content .content_body .error{
+	color: rgb(205,105,105);
+	text-decoration: line-through;
+}
+.content .content_body .answer{
+	background: rgb(106,210,188);
+    color: white;
 }
 .content .content_body .active_choose {
     background: rgb(112,211,242);
@@ -190,7 +202,99 @@
 }
 .test{
 	width: 1000px;
-	height: 400px;
-	background: url(../images/2.jpg);
+	height: 700px;
+	background: url(../images/6.jpg);
 }
 
+/*结果展示板块*/
+.showResult{
+	display: none;
+	background: #fff;
+	z-index: 2;
+	position: absolute;
+	top: 40px;
+	left: 10px;
+	width: 580px;
+}
+.showResult .showResult_header p{
+	height: 45px;
+	width:100%;
+	line-height: 45px;
+	text-align: center; 
+	color: #5F5F5F;
+	font-size: 15px;
+	font-weight: bold;
+	border-bottom: 1px solid #E8E8E8;
+}
+.showResult .showResult_body{
+	margin-top: 20px;
+	border-bottom: 1px solid #E8E8E8;
+}
+.showResult .showResult_body p{
+	height: 30px;
+	width:100%;
+	line-height: 30px;
+	text-align: center; 
+	color: rgb(191,191,191);
+	font-size: 15px;
+	font-weight: 800;
+}
+.showResult .showResult_body .percent{
+	height: 60px;
+	line-height: 60px;
+	font-size: 35px;
+	color: rgb(133,222,246);
+}
+.showResult .showResult_body .showResult_body_table{
+	width: 400px;
+	margin: 0 auto;
+}
+.showResult .showResult_body table,tr,td{
+	border:none;	
+}
+.showResult .showResult_body td {
+	width: 80px;
+	height: 60px;
+	text-align: center;
+}
+/*正确则为绿色，错误则为红色*/
+.showResult .showResult_body .show_right{
+	color: green;
+}
+.showResult .showResult_body .show_error{
+	color: red;
+}
+.showResult_footer{
+	margin-top: 10px;
+}
+.showResult_footer div {
+	padding: 10px 40px 10px 40px;
+}
+/*
+绿色134 218 201
+蓝色155 228 249
+*/
+.showResult_footer div button {
+	width: 240px;
+	height: 35px;
+	border:1px solid rgb(155,228,249);
+	background: #fff;
+	outline: none;
+	border-radius: 20px;
+	color: rgb(155,228,249);
+	cursor: pointer;
+}
+.showResult_footer div .checkout_analysise{
+	border-color: rgb(134,218,201);
+	color: rgb(134,218,201);
+	margin-right: 15px;
+}
+.showResult_footer div button:hover{
+	color: black;
+}
+
+/*灰色背景*/
+.container.opcaity{
+	z-index: 1;
+	background: rgb(128,128,128);
+}
