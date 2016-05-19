@@ -76,7 +76,9 @@
 	font-size: 14px;
 	line-height: 27px
 }
-.content .content_body button {
+.content .content_body a {
+	text-decoration: none;
+	display: inline-block;
 	border: 0;
     width: 80px;
     height: 20px;
@@ -84,9 +86,12 @@
     border-bottom: 1px solid #D1D1D1;
     outline: none;
     cursor: pointer;
+    color: rgb(112,211,242);
+    font-size: 10px;
 }
 .content .content_body .active_choose {
     background: rgb(112,211,242);
+    color: #fff;
 }
 .body .content_footer{
 	position: relative;
@@ -101,11 +106,11 @@
 }
 .body .touch_btn{
 	width: 44px;
-	height: 24px;
+	height: 40px;
 	cursor: pointer;
 	border:0;
 	outline: none;
-	background:url(../images/line.png);
+	background:url(../images/line.png) no-repeat;
 	position: absolute;
 	top: 15px;
 	left: 278px
@@ -115,7 +120,7 @@
 .footer .q_number ul {
 	overflow: hidden;
 	/*动态换取宽度,要判断是不是最大的宽度*/
-	width: 300px;
+	width: 320px;
 	margin:0 auto;
 }
 .footer .q_number li {
@@ -125,14 +130,19 @@
 	position: relative;
 	height: 35px;
 }
-.footer .q_number li button {
+.footer .q_number li a {
+	display: inline-block;
 	width: 27px;
     height: 27px;
+    line-height: 27px;
     outline: none;
     border: 1px solid;
     border-radius: 6px;
     background-color: rgb(219,219,219);
     color: #fff;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
 }
 .footer .q_number li span{
 	width:0; 
@@ -183,6 +193,4 @@
 	height: 400px;
 	background: url(../images/2.jpg);
 }
-
-
 
