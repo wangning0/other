@@ -146,8 +146,8 @@ submit.addEventListener('click', function() {
 		addAnswer(wrongInfoObj.wrongIndex, right_answer);
 		var span = document.createElement('span');
 		var chooseLastLi = document.querySelector('.active_choose_li');
-		console.log(chooseLastLi);
-		chooseLastLi.removeChild(chooseLastLi.childNodes[1]);
+		//console.log(chooseLastLi);
+		chooseLastLi ? chooseLastLi.removeChild(chooseLastLi.childNodes[1]) : '';
 		chooseLastLi ? chooseLastLi.removeAttribute('class') : '';
 		number_li[0].setAttribute('class', 'active_choose_li');
 		number_li[0].appendChild(span);

@@ -9,9 +9,7 @@
 	background: ;
 	position: relative;
 }
-
 /*头部*/
-
 .header {
 	background: rgb(245,245,245);
 	height: 40px;
@@ -145,7 +143,6 @@
 }
 .footer .q_number ul {
 	overflow: hidden;
-	/*动态换取宽度,要判断是不是最大的宽度*/
 	width: 320px;
 	margin:0 auto;
 }
@@ -196,11 +193,8 @@
 .footer .q_chooses table, td, th
   {
   border:1px solid #795548;
-  }
-
-
+ }
 /*样式改变*/
-
 .footer .q_number .choosed {
 	background-color: rgb(112,211,242)
 }
@@ -279,7 +273,6 @@
 	height: 60px;
 	text-align: center;
 }
-/*正确则为绿色，错误则为红色*/
 .showResult .showResult_body .show_right{
 	color: green;
 }
@@ -292,10 +285,7 @@
 .showResult_footer div {
 	padding: 10px 40px 10px 40px;
 }
-/*
-绿色134 218 201
-蓝色155 228 249
-*/
+
 .showResult_footer div button {
 	width: 240px;
 	height: 35px;
@@ -314,8 +304,6 @@
 .showResult_footer div button:hover{
 	color: black;
 }
-
-/*灰色背景*/
 .container.opcaity{
 	z-index: 1;
 	background: rgb(128,128,128);
