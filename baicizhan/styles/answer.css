@@ -23,8 +23,7 @@
 	float: left;
 }
 .header .span_first{
-	display: inline-block;
-    width: 21px;
+	display: inline-blockdi    width: 21px;
     height: 22px;
 	background: url(../images/arrow.png);
 	margin-right: 20px;
@@ -284,6 +283,7 @@
 }
 .showResult_footer div {
 	padding: 10px 40px 10px 40px;
+	overflow: hidden;
 }
 
 .showResult_footer div button {
@@ -295,6 +295,7 @@
 	border-radius: 20px;
 	color: rgb(155,228,249);
 	cursor: pointer;
+	float: left;
 }
 .showResult_footer div .checkout_analysise{
 	border-color: rgb(134,218,201);

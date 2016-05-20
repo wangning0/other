@@ -153,7 +153,7 @@ submit.addEventListener('click', function() {
 		number_li[0].appendChild(span);
 		q_chooses_table.style.display = 'none';
 		showAnalysiseTab(showAnswerTab, 0, answer_analysis);
-		location.hash = "#1";
+		location.hash = "#0";
 
 	}
 })
