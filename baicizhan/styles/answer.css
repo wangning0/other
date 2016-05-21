@@ -23,7 +23,8 @@
 	float: left;
 }
 .header .span_first{
-	display: inline-blockdi    width: 21px;
+	display: inline-block;
+	width: 21px;
     height: 22px;
 	background: url(../images/arrow.png);
 	margin-right: 20px;

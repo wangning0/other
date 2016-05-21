@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+    img{
+        width: 400px;
+        height: 300px;
+        left: 200px;
+        position: absolute;
+        z-index: -1;
+    }
+    canvas{
+        margin-left:200px;
+    }
