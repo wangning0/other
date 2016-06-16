@@ -3,13 +3,14 @@ var webpack = require('gulp-webpack');
 var rimraf = require('gulp-rimraf');
 var runSequence = require('run-sequence');
 var WebpackConfig = require('./webpack.config.js');
+var WebpackConfigProd = require('./webpack.prod.config.js');
 var Webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var gutil = require('gulp-util');
 
 gulp.task('pro_build', function() {
 	return gulp.src('./app/index.js')
-		.pipe(webpack(WebpackConfig))
+		.pipe(webpack(WebpackConfigProd))
 		.pipe(gulp.dest('./build/'))
 });
 gulp.task('clean', function() {
