@@ -1,0 +1,39 @@
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.DS_Store
+
+# node-waf configuration
+.lock-wscript
+
+# Compiled binary addons (http://nodejs.org/api/addons.html)
+build/Release
+
+# Dependency directory
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
+node_modules
+
+# Bower
+bower_components/
+dist
+
+# WebStorm文件
+*.idea/
+
+# Emacs
+# tern(JS解析器, emacs里补全用的)
+.tern-port
+.#*
+*#
+*~
+
+# Mac 临时文件
+.DS_Store
+
+# 其他
+dump.rdb

@@ -1,0 +1,6 @@
+{
+  "name": "Message",
+  "main": "./Message.js",
+  "private": true
+}
+

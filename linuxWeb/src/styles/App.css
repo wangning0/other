@@ -1,0 +1,12 @@
+body {
+  font-family: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+  line-height: 1.5;
+  color: #666;
+  font-size: 14px;
+  background-color: #f7f7f7;
+  transition: background 1s cubic-bezier(.075, .82, .165, 1);
+  overflow-x: hidden;
+
+  height: 100%;
+  width: 100%;
+}

@@ -1,0 +1,9 @@
+.name {
+  font-size: 14px;
+}
+
+.name .label {
+  margin-left: 70px;
+  margin-right: 20px;
+  width: 20%;
+}
