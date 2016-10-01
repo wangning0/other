@@ -1,0 +1,24 @@
+.log-list {
+  display: flex;
+  flex-direction: column;
+  padding: 40rpx;
+}
+.log-item {
+  margin: 10rpx;
+}
+.bc_green{
+  background-color:green; 
+  height: 100px;
+}
+.bc_red{
+  background-color: red;
+  height: 100px;
+}
+.bc_blue{
+  background-color: blue;
+  height: 100px;
+}
+.bc_yellow{
+  background-color: yellow;
+  height: 100px;
+}
