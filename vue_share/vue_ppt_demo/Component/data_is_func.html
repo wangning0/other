@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register Component</title>
+</head>
+<body>
+  <div id="app">
+    <my-component></my-component>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    // 全局注册
+    Vue.component('my-component', {
+      template: '<div>A custom component</div>',
+      // data: {
+      //   message: 'hello'
+      // }
+      data: function() {
+        return { message: 'hello' }
+      }
+    })
+
+    // 创建根示例
+    new Vue({
+      el: '#app'
+    })
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register Component</title>
+</head>
+<body>
+  <div id="app">
+    <p>{{ total }}</p>
+    <!-- @increment 此处绑定 -->
+    <button-counter @increment="incrementTotal"></button-counter>
+    <button-counter @increment="incrementTotal"></button-counter>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    // 全局注册
+    Vue.component('button-counter', {
+      template: '<button @click="increment">{{ counter }}</button>',
+      data: function() {
+        return {
+          counter: 0
+        }
+      },
+      methods: {
+        increment: function() {
+          this.counter += 1;
+          this.$emit('increment', this.counter); //此处触发 increment,可以传参数
+        }
+      }
+    })
+
+    // 创建根示例
+    new Vue({
+      el: '#app',
+      data: {
+        total: 0
+      },
+      methods: {
+        incrementTotal: function(num) {
+          this.total += 1;
+          console.log(num);
+        }
+      }
+    })
+
+  </script>
+</body>
+</html>

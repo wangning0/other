@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>v-for</title>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="item in items">
+        {{ item.message }}
+      </li>
+    </ul>
+    <p>---------------------------------</p>
+    <ul>
+      <li v-for="(model, index) in models">
+        {{ parentMessage }} - {{ index }} - {{ model.info }}
+      </li>
+    </ul>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        items: [
+          {message: 'foo'},
+          {message: 'Bar'}
+        ],
+        parentMessage: 'parent',
+        models: [
+          {info: 'first'},
+          {info: 'second'}
+        ]
+      }
+    })
+
+    //console.log(vm);
+  </script>
+</body>
+</html>

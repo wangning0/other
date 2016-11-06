@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register Component</title>
+</head>
+<body>
+  <div id="app">
+    <async-example></async-example>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    // resolve 表示请求成功 reject表示请求失败
+    Vue.component('async-example', function(resolve, reject) {
+      setTimeout(function () {
+        resolve({
+          template: '<div>I am async!</div>'
+        })
+      }, 1000)
+    })
+
+    // 创建根示例
+    new Vue({
+      el: '#app'
+    })
+
+  </script>
+</body>
+</html>

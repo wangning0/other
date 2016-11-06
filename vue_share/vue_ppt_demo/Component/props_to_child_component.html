@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register Component</title>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="parentMsg" />
+    <!-- 动态语法，使用了v-bind 会当作js表达式计算 -->
+    <child v-bind:my-message="parentMsg"></child>
+    <div>
+      <!-- 字面量语法， 会当成字符串来进行传递 -->
+      <child my-message="parentMsg"></child>
+    </div>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    /*
+      如果在非字符串模版下 使用props时，props的名字形式会从驼峰式变成短横线隔开
+      myMessage ====> my-message
+    */
+    // 全局注册
+    Vue.component('child', {
+      props: ['myMessage'],
+      template: '<span>hello, {{ myMessage }}</span>'
+    })
+
+    // 创建根示例
+    new Vue({
+      el: '#app',
+      data: {
+        parentMsg: ''
+      }
+    })
+
+  </script>
+</body>
+</html>

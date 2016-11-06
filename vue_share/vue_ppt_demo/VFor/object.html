@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>v-for</title>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="value in object">
+        {{value}}
+      </li>
+    </ul>
+    <p>-----------------------------</p>
+    <ul>
+      <li v-for="(value, key) in object">
+        {{ key }} : {{ value }}
+      </li>
+    </ul>
+    <p>-----------------------------</p>
+    <ul>
+      <li v-for="(value, key, index) in object">
+        {{ index }}. {{ key }} : {{ value }}
+      </li>
+    </ul>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        object: {
+          FirstName: 'John',
+          LastName: 'Doe',
+          Age: 30
+        }
+      }
+    })
+
+    //console.log(vm);
+  </script>
+</body>
+</html>

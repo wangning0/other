@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Bidirectional Data Binding</title>
+</head>
+<body>
+  <!-- View -->
+  <div id="app">
+    <p>{{message}}</p>
+    <input type="text" v-model="message" />
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    // 这是我们的Model
+    var modelData = {
+      message: 'Hello,World'
+    };
+
+    //创建一个Vue实例或"ViewModel"
+    var vm = new Vue({
+      el: '#app',
+      data: modelData
+    })
+
+  </script>
+</body>
+</html>

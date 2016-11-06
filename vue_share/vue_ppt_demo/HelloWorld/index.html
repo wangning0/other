@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World</title>
+</head>
+<body>
+  <div id="app">
+    {{message}}
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    // 这是我们的Model
+    var helloWorldData = {
+      message: 'Hello,World'
+    };
+
+    //创建一个Vue实例或"ViewModel"
+    var vm = new Vue({
+      el: '#app',
+      data: helloWorldData
+    })
+
+    console.log(vm);
+  </script>
+</body>
+</html>

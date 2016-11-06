@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>test</title>
+</head>
+<body>
+  <template id="test">
+    <div>
+      <p>test component</p>
+      <p>{{message}}</p>
+    </div>
+  </template>
+  <div id="app">
+    <test-template></test-template>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    Vue.component('test-template', {
+      template: '#test',
+      data: function() {
+        return {
+          message: 'hello,vue'
+        }
+      }
+    })
+    var vm = new Vue({
+      el: '#app'
+    })
+  </script>
+</body>
+</html>

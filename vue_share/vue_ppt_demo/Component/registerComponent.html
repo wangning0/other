@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register Component</title>
+</head>
+<body>
+  <div id="app">
+    <my-component></my-component>
+    <!-- <my-other-component></my-other-component> -->
+  </div>
+  <p>---------------------------------</p>
+  <div id="app_1">
+    <!-- <my-component></my-component>  -->
+    <my-other-component></my-other-component>
+  </div>  
+  <script src="../vue.js"></script>
+  <script>
+    // 全局注册
+    Vue.component('my-component', {
+      template: '<div>A custom component</div>'
+    })
+
+    // 创建根示例
+    new Vue({
+      el: '#app'
+    })
+
+    //局部注册
+    var Child = {
+      template: '<div>A custom other component!</div>'
+    }
+
+    new Vue({
+      el:'#app_1',
+      components: {
+        'my-other-component': Child
+      }
+    })
+  </script>
+</body>
+</html>
