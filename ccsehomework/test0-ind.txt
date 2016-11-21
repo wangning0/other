@@ -1,6 +1,1 @@
-line one has one word twice
-line two has words once only
-line three follows lines one and two, but not four
-line four is like the other lines, not like line five
-line five has word one and word two and word three
-six is the littlest one
+cai lao shi wo ai ni

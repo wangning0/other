@@ -23,7 +23,7 @@ if (process.env.NODE_ENV === 'development') {
   const port = process.env.CLIENT_PORT || 8080;
 
   config.cache = true;
-  config.debug = true;
+  config.debug = true;    
   config.devtool = 'cheap-module-eval-source-map';
 
   Object.keys(config.entry).forEach(k => {
