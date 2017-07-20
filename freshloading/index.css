@@ -1,0 +1,77 @@
+@-webkit-keyframes animate-loading {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    8.3% {
+        -webkit-transform: rotate(30deg);
+        transform: rotate(30deg);
+    }
+
+    16.7% {
+        -webkit-transform: rotate(60deg);
+        transform: rotate(60deg);
+    }
+
+    25% {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+
+    33.3% {
+        -webkit-transform: rotate(120deg);
+        transform: rotate(120deg);
+    }
+
+    41.7% {
+        -webkit-transform: rotate(150deg);
+        transform: rotate(150deg);
+    }
+
+    50% {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+
+    58.3% {
+        -webkit-transform: rotate(210deg);
+        transform: rotate(210deg);
+    }
+
+    66.7% {
+        -webkit-transform: rotate(240deg);
+        transform: rotate(240deg);
+    }
+
+    75% {
+        -webkit-transform: rotate(270deg);
+        transform: rotate(270deg);
+    }
+
+    83.3% {
+        -webkit-transform: rotate(300deg);
+        transform: rotate(300deg);
+    }
+
+    91.7% {
+        -webkit-transform: rotate(330deg);
+        transform: rotate(330deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.loading {
+    width: 20px;
+    height: 20px;
+    background: url("./loading.png") 0 0 no-repeat;
+    background-size: 20px 20px;
+    -webkit-animation-name: animate-loading;
+    -webkit-animation-duration: 1000ms;
+    -webkit-animation-timing-function: ease;
+    -webkit-animation-iteration-count: infinite;
+}
