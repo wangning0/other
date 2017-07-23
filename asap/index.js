@@ -1,0 +1,1 @@
+export asap = typeof Promise == 'function' ? Promise.resolve().then.bind(Promise.resolve()) : setTimeout;
